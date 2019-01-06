@@ -1,0 +1,14 @@
+/home/jess/Learnning/FirstDotNetCore/bin/Debug/netcoreapp2.2/FirstDotNetCore.deps.json
+/home/jess/Learnning/FirstDotNetCore/bin/Debug/netcoreapp2.2/FirstDotNetCore.runtimeconfig.json
+/home/jess/Learnning/FirstDotNetCore/bin/Debug/netcoreapp2.2/FirstDotNetCore.runtimeconfig.dev.json
+/home/jess/Learnning/FirstDotNetCore/bin/Debug/netcoreapp2.2/FirstDotNetCore.dll
+/home/jess/Learnning/FirstDotNetCore/bin/Debug/netcoreapp2.2/FirstDotNetCore.pdb
+/home/jess/Learnning/FirstDotNetCore/obj/Debug/netcoreapp2.2/FirstDotNetCore.csprojAssemblyReference.cache
+/home/jess/Learnning/FirstDotNetCore/obj/Debug/netcoreapp2.2/FirstDotNetCore.csproj.CoreCompileInputs.cache
+/home/jess/Learnning/FirstDotNetCore/obj/Debug/netcoreapp2.2/FirstDotNetCore.RazorAssemblyInfo.cache
+/home/jess/Learnning/FirstDotNetCore/obj/Debug/netcoreapp2.2/FirstDotNetCore.RazorAssemblyInfo.cs
+/home/jess/Learnning/FirstDotNetCore/obj/Debug/netcoreapp2.2/FirstDotNetCore.AssemblyInfoInputs.cache
+/home/jess/Learnning/FirstDotNetCore/obj/Debug/netcoreapp2.2/FirstDotNetCore.AssemblyInfo.cs
+/home/jess/Learnning/FirstDotNetCore/obj/Debug/netcoreapp2.2/FirstDotNetCore.RazorTargetAssemblyInfo.cache
+/home/jess/Learnning/FirstDotNetCore/obj/Debug/netcoreapp2.2/FirstDotNetCore.dll
+/home/jess/Learnning/FirstDotNetCore/obj/Debug/netcoreapp2.2/FirstDotNetCore.pdb
