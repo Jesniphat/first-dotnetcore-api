@@ -22,13 +22,11 @@ namespace FirstDotNetCore
         [HttpGet]
         public async Task<IActionResult> GetLatest()
         {
-            using (this.db)
-            {
-                await db.Connection.OpenAsync();
-                var query = new UserQueries(db);
-                var result = await query.LatestPostsAsync();
-                return new OkObjectResult(result);
-            }
+            
+            await this.db.Connection.OpenAsync();
+            var query = new UserQueries(this.db);
+            var result = await query.LatestPostsAsync();
+            return new OkObjectResult(result);
         }
 
 
@@ -38,8 +36,8 @@ namespace FirstDotNetCore
         {
             using (this.db)
             {
-                await db.Connection.OpenAsync();
-                var query = new UserQueries(db);
+                await this.db.Connection.OpenAsync();
+                var query = new UserQueries(this.db);
                 var result = await query.FindOneAsync(id);
                 if (result == null)
                     return new NotFoundResult();
@@ -52,13 +50,12 @@ namespace FirstDotNetCore
         public async Task<IActionResult> Post(Users body)
         {
             body.Password = "abcdef";
-            using (this.db)
-            {
-                await db.Connection.OpenAsync();
-                body.Db = db;
-                await body.InsertAsync();
-                return new OkObjectResult(body);
-            }
+            
+            await this.db.Connection.OpenAsync();
+            body.Db = this.db;
+            await body.InsertAsync();
+            return new OkObjectResult(body);
+            
         }
 
 
