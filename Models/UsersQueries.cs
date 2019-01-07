@@ -29,6 +29,26 @@ namespace FirstDotNetCore.Models
             return result.Count > 0 ? result[0] : null;
         }
 
+        public async Task<Users> FindOneByIdAsync(string email, string password)
+        {
+            var cmd = Db.Connection.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"SELECT id, username, email, password, name, lastname, DATE_FORMAT(created, '%d-%m-%Y %H:%i:%s') AS created, DATE_FORMAT(updated, '%d-%m-%Y %H:%i:%s') AS updated FROM `users` WHERE `email` = @email AND `password` = @password";
+            cmd.Parameters.Add(new MySqlParameter
+            {
+                ParameterName = "@email",
+                DbType = DbType.String,
+                Value = email,
+            });
+            cmd.Parameters.Add(new MySqlParameter
+            {
+                ParameterName = "@password",
+                DbType = DbType.String,
+                Value = password,
+            });
+            var result = await ReadAllAsync(await cmd.ExecuteReaderAsync());
+            return result.Count > 0 ? result[0] : null;
+        }
+
         public async Task<List<Users>> LatestPostsAsync()
         {
             var cmd = Db.Connection.CreateCommand();
