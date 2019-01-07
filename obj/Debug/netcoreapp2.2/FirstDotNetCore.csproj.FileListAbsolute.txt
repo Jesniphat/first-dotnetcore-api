@@ -12,3 +12,17 @@
 /home/jess/Learnning/FirstDotNetCore/obj/Debug/netcoreapp2.2/FirstDotNetCore.RazorTargetAssemblyInfo.cache
 /home/jess/Learnning/FirstDotNetCore/obj/Debug/netcoreapp2.2/FirstDotNetCore.dll
 /home/jess/Learnning/FirstDotNetCore/obj/Debug/netcoreapp2.2/FirstDotNetCore.pdb
+/Users/jesniphatp/Projects/first-dotnetcore-api/bin/Debug/netcoreapp2.2/FirstDotNetCore.deps.json
+/Users/jesniphatp/Projects/first-dotnetcore-api/bin/Debug/netcoreapp2.2/FirstDotNetCore.runtimeconfig.json
+/Users/jesniphatp/Projects/first-dotnetcore-api/bin/Debug/netcoreapp2.2/FirstDotNetCore.runtimeconfig.dev.json
+/Users/jesniphatp/Projects/first-dotnetcore-api/bin/Debug/netcoreapp2.2/FirstDotNetCore.dll
+/Users/jesniphatp/Projects/first-dotnetcore-api/bin/Debug/netcoreapp2.2/FirstDotNetCore.pdb
+/Users/jesniphatp/Projects/first-dotnetcore-api/obj/Debug/netcoreapp2.2/FirstDotNetCore.csprojAssemblyReference.cache
+/Users/jesniphatp/Projects/first-dotnetcore-api/obj/Debug/netcoreapp2.2/FirstDotNetCore.csproj.CoreCompileInputs.cache
+/Users/jesniphatp/Projects/first-dotnetcore-api/obj/Debug/netcoreapp2.2/FirstDotNetCore.RazorAssemblyInfo.cache
+/Users/jesniphatp/Projects/first-dotnetcore-api/obj/Debug/netcoreapp2.2/FirstDotNetCore.RazorAssemblyInfo.cs
+/Users/jesniphatp/Projects/first-dotnetcore-api/obj/Debug/netcoreapp2.2/FirstDotNetCore.AssemblyInfoInputs.cache
+/Users/jesniphatp/Projects/first-dotnetcore-api/obj/Debug/netcoreapp2.2/FirstDotNetCore.AssemblyInfo.cs
+/Users/jesniphatp/Projects/first-dotnetcore-api/obj/Debug/netcoreapp2.2/FirstDotNetCore.RazorTargetAssemblyInfo.cache
+/Users/jesniphatp/Projects/first-dotnetcore-api/obj/Debug/netcoreapp2.2/FirstDotNetCore.dll
+/Users/jesniphatp/Projects/first-dotnetcore-api/obj/Debug/netcoreapp2.2/FirstDotNetCore.pdb

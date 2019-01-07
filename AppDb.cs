@@ -7,7 +7,7 @@ namespace FirstDotNetCore
     {
         public MySqlConnection Connection;
 
-        public AppDb(string connectionString = "server=47.74.235.241;user id=root;password=rootp@ssw0rd;port=3306;database=dotnetcore;")
+        public AppDb(string connectionString)
         {
             Connection = new MySqlConnection(connectionString);
         }

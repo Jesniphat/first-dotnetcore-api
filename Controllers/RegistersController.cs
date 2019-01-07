@@ -11,12 +11,18 @@ namespace FirstDotNetCore
     [ApiController]
     public class RegistersController : ControllerBase
     { 
+        public AppDb db;
+        public RegistersController(AppDb DB)
+        {
+            // Use AppDb instance service
+            this.db = DB;
+        }
 
         // GET api/querys
         [HttpGet]
         public async Task<IActionResult> GetLatest()
         {
-            using (var db = new AppDb())
+            using (this.db)
             {
                 await db.Connection.OpenAsync();
                 var query = new UserQueries(db);
@@ -30,7 +36,7 @@ namespace FirstDotNetCore
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOne(int id)
         {
-            using (var db = new AppDb())
+            using (this.db)
             {
                 await db.Connection.OpenAsync();
                 var query = new UserQueries(db);
@@ -46,7 +52,7 @@ namespace FirstDotNetCore
         public async Task<IActionResult> Post(Users body)
         {
             body.Password = "abcdef";
-            using (var db = new AppDb())
+            using (this.db)
             {
                 await db.Connection.OpenAsync();
                 body.Db = db;
