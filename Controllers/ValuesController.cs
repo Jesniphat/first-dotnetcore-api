@@ -18,10 +18,13 @@ namespace FirstDotNetCore.Controllers
         {
             var id = User.FindFirst("sub")?.Value;
             var email = User.FindFirst("Email")?.Value;
+            var some_id = User.FindFirst("FullName")?.Value;
+            var isAdmin = User.FindFirst("IsAdmin")?.Value;
             return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
+        [Authorize(Policy = "TrainedAdminOnly")]
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {

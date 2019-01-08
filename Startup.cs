@@ -56,6 +56,10 @@ namespace FirstDotNetCore
                         ClockSkew = TimeSpan.Zero // remove delay of token when expire
                     };
                 });
+
+            services.AddAuthorization(options => {
+                options.AddPolicy("TrainedAdminOnly", policy => policy.RequireClaim("IsAdmin"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -50,8 +50,13 @@ namespace FirstDotNetCore
               {
                   new Claim(JwtRegisteredClaimNames.Sub, Id),
                   new Claim(JwtRegisteredClaimNames.Email, data.Email),
+                  new Claim("FullName", String.Concat(data.Name, " ", data.Lastname)),
                   new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
               };
+
+        if (data.Isadmin == "1") {
+            claims.Add(new Claim("IsAdmin", "true"));
+        }
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtKey"]));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

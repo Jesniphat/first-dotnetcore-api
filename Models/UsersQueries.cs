@@ -18,7 +18,7 @@ namespace FirstDotNetCore.Models
         public async Task<Users> FindOneAsync(int id)
         {
             var cmd = Db.Connection.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"SELECT id, username, email, password, name, lastname, DATE_FORMAT(created, '%d-%m-%Y %H:%i:%s') AS created, DATE_FORMAT(updated, '%d-%m-%Y %H:%i:%s') AS updated FROM `users` WHERE `Id` = @id";
+            cmd.CommandText = @"SELECT id, username, email, password, name, lastname, DATE_FORMAT(created, '%d-%m-%Y %H:%i:%s') AS created, DATE_FORMAT(updated, '%d-%m-%Y %H:%i:%s') AS updated, isadmin FROM `users` WHERE `Id` = @id";
             cmd.Parameters.Add(new MySqlParameter
             {
                 ParameterName = "@id",
@@ -32,7 +32,7 @@ namespace FirstDotNetCore.Models
         public async Task<Users> FindOneByIdAsync(string email, string password)
         {
             var cmd = Db.Connection.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"SELECT id, username, email, password, name, lastname, DATE_FORMAT(created, '%d-%m-%Y %H:%i:%s') AS created, DATE_FORMAT(updated, '%d-%m-%Y %H:%i:%s') AS updated FROM `users` WHERE `email` = @email AND `password` = @password";
+            cmd.CommandText = @"SELECT id, username, email, password, name, lastname, DATE_FORMAT(created, '%d-%m-%Y %H:%i:%s') AS created, DATE_FORMAT(updated, '%d-%m-%Y %H:%i:%s') AS updated, isadmin FROM `users` WHERE `email` = @email AND `password` = @password";
             cmd.Parameters.Add(new MySqlParameter
             {
                 ParameterName = "@email",
@@ -52,7 +52,7 @@ namespace FirstDotNetCore.Models
         public async Task<List<Users>> LatestPostsAsync()
         {
             var cmd = Db.Connection.CreateCommand();
-            cmd.CommandText = @"SELECT id, username, email, password, name, lastname, DATE_FORMAT(created, '%d-%m-%Y %H:%i:%s') AS created, DATE_FORMAT(updated, '%d-%m-%Y %H:%i:%s') AS updated FROM `users` ORDER BY `Id` DESC LIMIT 10;";
+            cmd.CommandText = @"SELECT id, username, email, password, name, lastname, DATE_FORMAT(created, '%d-%m-%Y %H:%i:%s') AS created, DATE_FORMAT(updated, '%d-%m-%Y %H:%i:%s') AS updated, isadmin FROM `users` ORDER BY `Id` DESC LIMIT 10;";
             return await ReadAllAsync(await cmd.ExecuteReaderAsync());
         }
 
@@ -91,6 +91,7 @@ namespace FirstDotNetCore.Models
                         Lastname = await reader.GetFieldValueAsync<string>(5),
                         Created = await reader.GetFieldValueAsync<string>(6),
                         Updated = await reader.GetFieldValueAsync<string>(7),
+                        Isadmin = await reader.GetFieldValueAsync<string>(8)
                     };
                     posts.Add(post);
                 }

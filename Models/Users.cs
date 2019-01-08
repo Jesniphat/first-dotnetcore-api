@@ -15,6 +15,7 @@ namespace FirstDotNetCore.Models
         public string Lastname { get; set; }
         public string Created { get; set; }
         public string Updated { get; set; }
+        public string Isadmin { get; set; }
 
         [JsonIgnore]
         public AppDb Db { get; set; }

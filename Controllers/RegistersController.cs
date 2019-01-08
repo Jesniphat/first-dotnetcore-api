@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using FirstDotNetCore.Models;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FirstDotNetCore
 {
@@ -21,6 +22,7 @@ namespace FirstDotNetCore
         }
 
         // GET api/querys
+        [Authorize(Policy = "TrainedAdminOnly")]
         [HttpGet]
         public async Task<IActionResult> GetLatest()
         {
@@ -34,6 +36,7 @@ namespace FirstDotNetCore
 
         // GET api/querys/1
         [HttpGet("{id}")]
+        [Authorize(Policy = "TrainedAdminOnly")]
         public async Task<IActionResult> GetOne(int id)
         {
             using (this.db)
