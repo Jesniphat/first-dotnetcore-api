@@ -58,6 +58,10 @@ namespace FirstDotNetCore
             claims.Add(new Claim("IsAdmin", "true"));
         }
 
+        // if (data.Isstaff == "1") {
+        //     claims.Add(new Claim("IsStaff", "true"));
+        // }
+
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtKey"]));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
         var expires = DateTime.Now.AddDays(Convert.ToDouble(_configuration["JwtExpireDays"]));
