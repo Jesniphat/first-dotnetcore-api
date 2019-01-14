@@ -39,6 +39,9 @@ namespace FirstDotNetCore
             body.Password = CalculateMD5Hash(body.Password);
 
             var result = await query.FindOneByIdAsync(body.Email, body.Password);
+            if (result == null) {
+                return BadRequest("Invalid username or password.");
+            }
             var token = this.GetToken(result);
             return new OkObjectResult(token);
         }

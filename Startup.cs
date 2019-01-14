@@ -14,6 +14,8 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace FirstDotNetCore
 {
@@ -54,6 +56,18 @@ namespace FirstDotNetCore
                         ValidAudience = Configuration["JwtAudience"],
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtKey"])),
                         ClockSkew = TimeSpan.Zero // remove delay of token when expire
+                    };
+
+                    cfg.Events = new JwtBearerEvents()
+                    {
+                        OnAuthenticationFailed = context =>
+                        {
+                            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                            context.Response.ContentType = "application/json; charset=utf-8";
+                            var message = context.Exception.ToString(); //  "An error occurred processing your authentication."
+                            var result = JsonConvert.SerializeObject(new { message });
+                            return context.Response.WriteAsync(result);
+                        }
                     };
                 });
 
